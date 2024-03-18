@@ -175,21 +175,21 @@ if (empty($_SESSION['email'])) {
           <i class="bi bi-menu-button-wide"></i><span>HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse text-light" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Archive</span>
+        <li>
+            <a href="archive.php">
+              <i class="bi bi-circle text-light"></i><span class="text-light p-2 btn btn-success">Archive</span>
             </a>
           </li>
 
           <li>
             <a href="set-sem.php">
-              <i class="bi bi-circle"></i><span>Semester</span>
+              <i class="bi bi-circle text-light"></i><span class="text-light p-2  btn btn-success">Semester</span>
             </a>
           </li>
 
           <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Scholars Designation</span>
+            <a href="designation.php">
+              <i class="bi bi-circle text-light"></i><span class="text-light p-2 btn btn-success">Scholars Designation</span>
             </a>
           </li>
           

@@ -166,29 +166,29 @@ if (empty($_SESSION['email'])) {
           <span class="btn btn-success">ANNOUNCEMENT</span>
         </a>
 
-        <li class="nav-item ">
+      <li class="nav-item ">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse text-light" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Archive</span>
+        <li>
+            <a href="archive.php">
+              <i class="bi bi-circle text-light"></i><span class="text-light p-2 btn btn-success">Archive</span>
             </a>
           </li>
 
           <li>
             <a href="set-sem.php">
-              <i class="bi bi-circle"></i><span>Semester</span>
+              <i class="bi bi-circle text-light"></i><span class="text-light p-2  btn btn-success">Semester</span>
             </a>
           </li>
 
           <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Scholars Designation</span>
+            <a href="designation.php">
+              <i class="bi bi-circle text-light"></i><span class="text-light p-2 btn btn-success">Scholars Designation</span>
             </a>
           </li>
-          
+
         </ul>
       </li><!-- End Components Nav -->
 
@@ -362,9 +362,16 @@ if (empty($_SESSION['email'])) {
 
                                   <label>Status</label><br>
                                   <div class="col-md-12 mb-3">
-                                    <input type="text" value="<?php echo $std['status'] ?>" name="status" class="form-control">
-                                  </div>
 
+                                    <select class="form-select form-select-3" name="status" require>
+                                      <option value="<?php echo $std['status']; ?>"><?php echo $std['status']; ?></option>
+                                      <option value="Activate">Activate</option>
+                                      <option value="Deactivate">Deactivate</option>
+
+                                    </select>
+
+
+  
 
 
                                 </div>
@@ -418,11 +425,11 @@ if (empty($_SESSION['email'])) {
 
 
 
-                        <th scope="col"><a href="" data-bs-toggle="modal" class="btn btn-light fw-bold text-success" data-bs-target="#more<?php echo $faculties['id'] ?>">View more</a></th>
+                        <th scope="col"><a href="" data-bs-toggle="modal" class="btn btn-light fw-bold text-success" data-bs-target="#more1<?php echo $faculties['id'];?>">View more</a></th>
                       </tr>
 
                       <!--Modal For Update Delete Faculties-->
-                      <div class="modal" tabindex="-1" id="more<?php echo $faculties['id'] ?>">
+                      <div class="modal" tabindex="-1" id="more1<?php echo $faculties['id']; ?>">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -457,7 +464,18 @@ if (empty($_SESSION['email'])) {
                                 </div>
                                 <div class="col-md-12 mb-3">
                                   <label>Status</label>
-                                  <input type="text" value="<?php echo $faculties['account_status'] ?>" name="account_status" class="form-control">
+
+
+                                <select class="form-select form-select-3" name="account_status" required>
+                                      <option value="<?php echo $faculties['account_status'] ?>"> <?php echo $faculties['account_status'] ?> </option>
+                                      <option value="Activate"> Activate</option>
+                                      <option value="Deactivate">Deactivate </option>
+
+                                </select>
+
+
+
+                                  
                                 </div>
                                 <div class="col-md-12 mb-3">
                                   <label>Id Number</label>

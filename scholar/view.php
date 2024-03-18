@@ -209,7 +209,7 @@ if (empty($_SESSION['email'])) {
             <option value="Laboratory Assistant">Laboratory Assistant</option>
             <option value="Student Facilitator ">Student Facilitator </option>
             <option value="Office Assistant ">Office Assistant </option>
-            <option value="Student Facilitator ">Student Facilitator </option>
+            <option value="Library Assitant">Library Assistant</option>
 
 
 
@@ -237,13 +237,20 @@ if (empty($_SESSION['email'])) {
             $get_post = mysqli_query($conn, "SELECT * FROM post WHERE title LIKE'%$title%'");
             while ($post = mysqli_fetch_array($get_post)) {
 
+              $get_profile = mysqli_query($conn, "SELECT * FROM faculties WHERE email ='{$post['faculty_email']}'");
+              while($profile = mysqli_fetch_object($get_profile)){
+
+                  $faculty_profile = $profile -> profile;
+              }
+
+
 
             ?>
               <div class="col-md-6 mb-4 mb-lg-0">
                 <div class="card mb-2 shadow" style="border-radius: .5rem; border: 2px solid black;">
                   <div class="row g-0">
                     <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                      <img src="../assets/img/hk1.jpg" alt="Avatar" class="img-fluid my-4 rounded-circle border border-3 border-dark" style="width: 120px;" />
+                      <img src="../uploads/<?php echo $faculty_profile; ?>" alt="Avatar" class="img-fluid my-4 rounded-circle border border-3 border-dark" style="width: 100px; height: 90px;" />
                       <h6 class=" fw-bold" style="font-size: 20px; color: green; text-decoration: underline;"> <?php echo $post['fullname']; ?></h6>
                       <h6 class="text-dark fw-bold"> <?php echo $post['department']; ?></h6>
                       <p class="text-dark fw-bold"> <?php echo $post['faculty_email']; ?></p>

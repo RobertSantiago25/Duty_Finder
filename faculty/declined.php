@@ -206,7 +206,7 @@ if (empty($_SESSION['email'])) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1 class="text-dark">Accepted Applicants</h1>
+      <h1 class="text-dark">Declined Applicants</h1>
       <nav>
         <ol class="breadcrumb ">
           <li class="breadcrumb-item "><a href="index.php" class="text-dark btn btn-light">Home</a></li>
@@ -238,7 +238,7 @@ if (empty($_SESSION['email'])) {
               <tbody>
                 <?php
 
-                $get_app = mysqli_query($conn, "SELECT * FROM applicants WHERE status ='declined'");
+                $get_app = mysqli_query($conn, "SELECT * FROM applicants WHERE status ='Decline' AND faculty_email='$e'");
                 while ($applicants = mysqli_fetch_array($get_app)) {
                   $get_post_fact = mysqli_query($conn, "SELECT * FROM post WHERE faculty_email = '$e'");
                   while ($post = mysqli_fetch_object($get_post_fact)) {

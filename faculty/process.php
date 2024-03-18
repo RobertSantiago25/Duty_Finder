@@ -292,7 +292,7 @@ if (isset($_POST['post'])) {
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
     $department = $_POST['department'];
-    $create_title = mysqli_query($conn, "INSERT INTO post VALUES('0','$fullname','$description','$title','$title','$faculty_email','$start_time','$end_time','$day','$department')");
+    $create_title = mysqli_query($conn, "INSERT INTO post VALUES('0','$fullname','$description','$title','$num_students','$faculty_email','$start_time','$end_time','$day','$department','$semester','$school_year')");
 
     if ($create_title == TRUE) {
 
@@ -419,6 +419,8 @@ if(isset($_POST['reject'])){
     <?php
     }
 }
+
+//Approve Applicants
 if(isset($_POST['approve_app'])){
     $app_id = $_GET['id'];
 
@@ -439,4 +441,30 @@ if(isset($_POST['approve_app'])){
     <?php
     }
 }
+
+//Decline Applicant
+
+if(isset($_POST['decline_app'])){
+    $dec_id =$_GET['id'];
+
+    $decline_applicants = mysqli_query($conn,"UPDATE applicants SET status = 'Decline' WHERE id ='$dec_id'");
+    if($decline_applicants == true){
+        ?>
+            <script>
+                alert("Applicant Declined!");
+                location.href='declined.php';
+            </script>
+        <?php
+    }else{
+        ?>
+        <script>
+            alert("Error Updating Status!");
+            location.href='create.php';
+        </script>
+    <?php
+    }
+
+
+}
+
 ?>

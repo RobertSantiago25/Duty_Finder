@@ -176,7 +176,7 @@ if (empty($_SESSION['email'])) {
         </a>
         <ul id="components-nav" class="nav-content collapse text-light " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="archive.php">
               <i class="bi bi-circle text-light"></i><span class="text-light p-2 btn btn-success">Archive</span>
             </a>
           </li>
@@ -188,7 +188,7 @@ if (empty($_SESSION['email'])) {
           </li>
 
           <li>
-            <a href="components-alerts.html">
+            <a href="designation.php">
               <i class="bi bi-circle text-light"></i><span class="text-light p-2 btn btn-success">Scholars Designation</span>
             </a>
           </li>

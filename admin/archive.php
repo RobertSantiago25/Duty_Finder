@@ -177,7 +177,7 @@ if (empty($_SESSION['email'])) {
                 </a>
                 <ul id="components-nav" class="nav-content collapse text-light" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="archive.php">
+                        <a href="archive.phpS">
                             <i class="bi bi-circle"></i><span>Archive</span>
                         </a>
                     </li>
@@ -226,143 +226,16 @@ if (empty($_SESSION['email'])) {
     <main id="main" class="main">
 
         <div class="pagetitle text-dark">
-            <h1 class="text-dark">SET SEMESTER</h1>
+            <h1 class="text-dark">Archive</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php" class="text-dark btn btn-light">Home</a></li>
-                    <li class="breadcrumb-item text-dark  btn btn-light">Set Semester</li>
+                    <li class="breadcrumb-item text-dark  btn btn-light">Archive</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
 
-        <section class="vh-100" style="background-color: #f4f5f7;">
-
-            <div class="container py-3 " style="margin-right: 100x;">
-                <form action="process.php" method="POST">
-                    <div class="input-group mb-3">
-                        <div class="input-group-text "><i class="bi bi-person"></i></div>
-                        <select name="semester" class="form-select" required>
-                            <option value="">--Set Semester</option>
-                            <option value="1st Semester">1st Semester</option>
-                            <option value="2nd Semester">2nd Semester</option>
-                            <option value="Summer">Summer</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <?php
-                        $date = date('Y');
-                        $year = $date + 1;
-                        $sy = "S.Y." . $date . '-' . $year;
-                        ?>
-                        <div class="input-group-text"><i class="bi bi-building"></i></div>
-                        <select class="form-control" name="year" id="" required>
-                            <option value="">--Select Year--</option>
-                            <?php
-                            for ($i = 0; $i < 5; $i++) {
-                            ?>
-
-                                <option value="<?php echo "S.Y." . $date + $i . '-' . $year + $i; ?>"><?php echo "S.Y." . $date + $i . '-' . $year + $i; ?> </option>
-
-                            <?php
-                            }
-                            ?>
-                        </select>
-
-
-                    </div>
-                    <div class="d-flex justify-content-end">
-
-
-                        <input type="submit" value="Set Semester" name="set_sem" class="btn btn-primary ">
-                    </div>
-                </form>
-
-                <div class="card shadow">
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Semester</th>
-                                    <th scope="col">School Year</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $get_semester = mysqli_query($conn, "SELECT * FROM semester");
-                                while ($sm = mysqli_fetch_array($get_semester)) {
-
-                                ?>
-                                    <tr>
-                                        <td><?php echo $sm['id']; ?></td>
-                                        <td><?php echo $sm['semester']; ?></td>
-                                        <td><?php echo $sm['school_year']; ?></td>
-                                        <td><button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#update<?php $sm['id']; ?>">Update</button></td>
-                                    </tr>
-                                    <div class="modal" id="update<?php $sm['id']; ?>" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Update Semester Info</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="process.php" method="POST">
-                                                        <div class="input-group mb-3">
-                                                            <div class="input-group-text "><i class="bi bi-person"></i></div>
-                                                            <select name="semester" class="form-select" required>
-                                                                <option value="<?php echo $sm['semester'] ?>"><?php echo $sm['semester'] ?></option>
-                                                                <option value="1st Semester">1st Semester</option>
-                                                                <option value="2nd Semester">2nd Semester</option>
-                                                                <option value="Summer">Summer</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="input-group mb-3">
-                                                            <?php
-                                                            $date = date('Y');
-                                                            $year = $date + 1;
-                                                            $sy = "S.Y." . $date . '-' . $year;
-                                                            ?>
-                                                            <div class="input-group-text"><i class="bi bi-building"></i></div>
-                                                            <select class="form-control" name="year" id="" required>
-                                                                <option value="<?php echo $sm['school_year'] ?>"><?php echo $sm['school_year']; ?></option>
-                                                                <?php
-                                                                for ($i = 0; $i < 5; $i++) {
-                                                                ?>
-
-                                                                    <option value="<?php echo "S.Y." . $date + $i . '-' . $year + $i; ?>"><?php echo "S.Y." . $date + $i . '-' . $year + $i; ?> </option>
-
-                                                                <?php
-                                                                }
-                                                                ?>
-                                                            </select>
-
-
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php
-
-                                }
-                                ?>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-        </section>
-
+       
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

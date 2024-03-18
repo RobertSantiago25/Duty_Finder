@@ -429,7 +429,7 @@ if (empty($_SESSION['email'])) {
                                               
                                               
                                               <button type="submit" name="approve_app" class="btn btn-success" onclick="return confirm('Do you want to Approve this applicant?')">Approve</button>
-                                              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#decline<?php echo $spec['id']; ?>">
+                                              <button type="submit" name="decline_app" onclick="return confirm('do you want to decline this application?')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#decline<?php echo $spec['id']; ?>">
                                                 
                                               Decline
 
@@ -474,8 +474,8 @@ if (empty($_SESSION['email'])) {
 
 
                       <!---Edit Post-->
-                      <div class="modal" id="edit<?php echo $post['id']; ?>" tabindex="-1">
-                        <div class="modal-dialog">
+                      <div class="modal " id="edit<?php echo $post['id']; ?>" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title">Edit post info</h5>

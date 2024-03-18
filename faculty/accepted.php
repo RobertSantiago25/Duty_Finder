@@ -238,16 +238,19 @@ if (empty($_SESSION['email'])) {
               <tbody>
                 <?php
 
-                $get_app = mysqli_query($conn, "SELECT * FROM applicants WHERE status ='approved'");
+                $get_app = mysqli_query($conn, "SELECT * FROM applicants WHERE status ='Approved' AND faculty_email ='$e'");
                 while ($applicants = mysqli_fetch_array($get_app)) {
+
+
+
                   $get_post_fact = mysqli_query($conn, "SELECT * FROM post WHERE faculty_email = '$e'");
                   while ($post = mysqli_fetch_object($get_post_fact)) {
-                    $post_id = $post->id;
+                    $post_id = $post-> id;
                   }
                 ?>
                   <tr> 
 
-                    <th scope="row"><?php echo $post_id?></th>
+                    <th scope="row"><?php echo $post_id; ?></th>
                     <th scope="row"><?php echo $applicants['fullname']; ?></th>
                     <th scope="row"><?php echo $applicants['contact'];?></th>
                     <th scope="row"><?php echo $applicants['id_num']; ?></th>
