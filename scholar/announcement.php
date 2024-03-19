@@ -5,7 +5,7 @@ if (empty($_SESSION['email'])) {
 ?>
   <script>
     alert("Session Expired Please Login Again");
-    location.href = '../index.html';
+    location.href = '../index.php';
   </script>
 <?php
 } else {

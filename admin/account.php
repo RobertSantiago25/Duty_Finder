@@ -5,7 +5,7 @@ if (empty($_SESSION['email'])) {
 ?>
   <script>
     alert("Session Expired Please Login Again");
-    location.href = '../index.html';
+    location.href = '../index.php';
   </script>
 <?php
 } else {
@@ -167,11 +167,11 @@ if (empty($_SESSION['email'])) {
         </a>
 
       <li class="nav-item ">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed bg bg-success" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide text-light"></i><span class="text-light">HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse text-light" data-bs-parent="#sidebar-nav">
-        <li>
+          <li>
             <a href="archive.php">
               <i class="bi bi-circle text-light"></i><span class="text-light p-2 btn btn-success">Archive</span>
             </a>
@@ -290,6 +290,7 @@ if (empty($_SESSION['email'])) {
                       <th scope="col">Contact</th>
                       <th scope="col">Id Number </th>
                       <th scope="col">Year Level</th>
+                      <th scope="col">Status</th>
                       <th scope="col">Action</th>
 
                     </tr>
@@ -308,13 +309,15 @@ if (empty($_SESSION['email'])) {
                         <th scope="row"><?php echo $std['contact'] ?></th>
                         <th scope="row"><?php echo $std['id_no'] ?></th>
                         <th scope="row"><?php echo $std['year_level'] ?></th>
+                        <th scope="row"><?php echo $std['status'] ?></th>
+
 
                         <th scope="col"><a href="" class="btn btn-light text-success fw-bold" data-bs-toggle="modal" data-bs-target="#more<?php echo $std['id'] ?>">View more</a></th>
                       </tr>
 
                       <!--Modal For Update Delete Students-->
                       <div class="modal" tabindex="-1" id="more<?php echo $std['id'] ?>">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-lg">
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title">Account ID <?php echo $std['id'] ?></h5>
@@ -324,46 +327,80 @@ if (empty($_SESSION['email'])) {
                               <form action="process.php?id=<?php echo $std['id'] ?>" method="POST">
                                 <div class="row">
 
-                                  <div class="col-md-12 mb-3">
+                                  <div class="col-md-6 mb-3 ">
                                     <label>Email</label>
-                                    <input type="email" value="<?php echo $std['email'] ?>" name="email" class="form-control" readonly>
+
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="email" value="<?php echo $std['email'] ?>" name="email" class="form-control" readonly>
+                                    </div>
                                   </div>
 
-                                  <div class="col-md-12 mb-3">
+
+                                  <div class="col-md-6 mb-3 ">
                                     <label>Student Name</label>
-                                    <input type="text" value="<?php echo $std['student_name'] ?>" name="student_name" class="form-control">
-
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $std['student_name'] ?>" name="student_name" class="form-control">
+                                    </div>
                                   </div>
 
-                                  <div class="col-md-12 mb-3">
+                                  <div class="col-md-6 mb-3 ">
                                     <label>Contact</label>
-                                    <input type="text" value="<?php echo $std['contact'] ?>" name="contact" class="form-control">
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $std['contact'] ?>" name="contact" class="form-control">
+                                    </div>
                                   </div>
 
-                                  <label>ID Number</label>
-                                  <div class="col-md-12 mb-3">
-                                    <input type="text" value="<?php echo $std['id_no'] ?>" name="id_no" class="form-control">
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Id Number</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $std['id_no'] ?>" name="id_no" class="form-control">
+
+                                    </div>
                                   </div>
 
-                                  <label>Year Level</label><br>
-                                  <div class="col-md-12 mb-3">
-                                    <input type="text" value="<?php echo $std['year_level'] ?>" name="year_level" class="form-control">
+
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Year Level</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $std['year_level'] ?>" name="year_level" class="form-control">
+                                    </div>
                                   </div>
 
-                                  <label>Course</label><br>
-                                  <div class="col-md-12 mb-3">
-                                    <input type="text" value="<?php echo $std['course'] ?>" name="course" class="form-control">
+
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Course</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $std['course'] ?>" name="course" class="form-control">
+
+                                    </div>
                                   </div>
 
-                                  <label>Department</label><br>
-                                  <div class="col-md-12 mb-3">
-                                    <input type="text" value="<?php echo $std['department'] ?>" name="department" class="form-control">
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Department</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $std['department'] ?>" name="department" class="form-control">
+
+                                    </div>
                                   </div>
 
+                                  
+
+                                  <div class="col-md-6 mb-3 ">
                                   <label>Status</label><br>
-                                  <div class="col-md-12 mb-3">
 
-                                    <select class="form-select form-select-3" name="status" require>
+                                    <div class="input-group">
+                                      <div class="input-group-text">
+
+
+                                      </div>
+                                      <select class="form-select form-select-3" name="status" require>
                                       <option value="<?php echo $std['status']; ?>"><?php echo $std['status']; ?></option>
                                       <option value="Activate">Activate</option>
                                       <option value="Deactivate">Deactivate</option>
@@ -371,7 +408,15 @@ if (empty($_SESSION['email'])) {
                                     </select>
 
 
-  
+
+                                    </div>
+                                  </div>
+
+
+
+
+
+
 
 
                                 </div>
@@ -404,7 +449,7 @@ if (empty($_SESSION['email'])) {
                       <th scope="col">Faculty Name</th>
                       <th scope="col">Contact</th>
                       <th scope="col">Address </th>
-
+                      <th scope="col">Status </th>
                       <th scope="col">Action</th>
 
                     </tr>
@@ -422,10 +467,11 @@ if (empty($_SESSION['email'])) {
                         <th scope="row"><?php echo $faculties['fullname'] ?></th>
                         <th scope="row"><?php echo $faculties['contact'] ?></th>
                         <th scope="row"><?php echo $faculties['address'] ?></th>
+                        <th scope="row"><?php echo $faculties['account_status'] ?></th>
 
 
 
-                        <th scope="col"><a href="" data-bs-toggle="modal" class="btn btn-light fw-bold text-success" data-bs-target="#more1<?php echo $faculties['id'];?>">View more</a></th>
+                        <th scope="col"><a href="" data-bs-toggle="modal" class="btn btn-light fw-bold text-success" data-bs-target="#more1<?php echo $faculties['id']; ?>">View more</a></th>
                       </tr>
 
                       <!--Modal For Update Delete Faculties-->
@@ -438,50 +484,86 @@ if (empty($_SESSION['email'])) {
                             </div>
                             <div class="modal-body">
                               <form action="process.php?id=<?php echo $faculties['id'] ?>" method="POST">
-                                <div class="col-md-12 mb-3">
-                                  <label>Email</label>
-                                  <input type="email" value="<?php echo $faculties['email'] ?>" name="email" class="form-control" readonly>
-                                </div>
+                              <div class="row">
 
-                                <div class="col-md-12 mb-3">
-                                  <label>Faculty Name</label>
-                                  <input type="text" value="<?php echo $faculties['fullname'] ?>" name="fullname" class="form-control">
-                                </div>
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Email</label>
 
-                                <div class="col-md-12 mb-3">
-                                  <label>Contact</label>
-                                  <input type="text" value="<?php echo $faculties['contact'] ?>" name="contact" class="form-control">
-                                </div>
-
-                                <div class="col-md-12 mb-3">
-                                  <label>Address</label>
-                                  <input type="text" value="<?php echo $faculties['address'] ?>" name="address" class="form-control">
-                                </div>
-
-                                <div class="col-md-12 mb-3">
-                                  <label>Department</label>
-                                  <input type="text" value="<?php echo $faculties['department'] ?>" name="department" class="form-control">
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                  <label>Status</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="email" value="<?php echo $faculties['email'] ?>" name="email" class="form-control" readonly>
+                                    </div>
+                                  </div>
 
 
-                                <select class="form-select form-select-3" name="account_status" required>
-                                      <option value="<?php echo $faculties['account_status'] ?>"> <?php echo $faculties['account_status'] ?> </option>
-                                      <option value="Activate"> Activate</option>
-                                      <option value="Deactivate">Deactivate </option>
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Faculty Name</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $faculties['fullname'] ?>" name="fullname" class="form-control">
+                                    </div>
+                                  </div>
 
-                                </select>
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Contact</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $faculties['contact'] ?>" name="contact" class="form-control">
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Address</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $faculties['address'] ?>" name="address" class="form-control">
+
+                                    </div>
+                                  </div>
 
 
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Department</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $faculties['department'] ?>" name="department" class="form-control">
+                                    </div>
+                                  </div>
 
+                                  <div class="col-md-6 mb-3 ">
+                                    <label>Id Number</label>
+                                    <div class="input-group">
+                                      <div class="input-group-text"></div>
+                                      <input type="text" value="<?php echo $faculties['id_num'] ?>" name="id_num" class="form-control">
+
+                                    </div>
+                                  </div>
+
+                             
                                   
+
+                                  <div class="col-md-12 mb-3 ">
+                                  <label>Status</label><br>
+
+                                    <div class="input-group">
+                                      <div class="input-group-text">
+
+
+                                      </div>
+                                      <select class="form-select form-select-3" name="faculty_status" require>
+                                      <option value="<?php echo $faculties['account_status']; ?>"><?php echo $faculties['account_status']; ?></option>
+                                      <option value="Activate">Activate</option>
+                                      <option value="Deactivate">Deactivate</option>
+
+                                    </select>
+
+
+
+                                    </div>
+                                  </div>
+
+
                                 </div>
-                                <div class="col-md-12 mb-3">
-                                  <label>Id Number</label>
-                                  <input type="text" value="<?php echo $faculties['id_num'] ?>" name="id_num" class="form-control">
-                                </div>
-                            </div>
                             <div class="modal-footer">
                               <input type="submit" name="delete_faculties" value="DELETE" class="btn btn-danger" onclick="return confirm('Do you want to delete this account?')">
                               <input type="submit" name="update_faculties" value="UPDATE" class="btn btn-primary">

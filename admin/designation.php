@@ -5,7 +5,7 @@ if (empty($_SESSION['email'])) {
 ?>
     <script>
         alert("Session Expired Please Login Again");
-        location.href = '../index.html';
+        location.href = '../index.php';
     </script>
 <?php
 } else {
@@ -172,29 +172,30 @@ if (empty($_SESSION['email'])) {
 
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed bg bg-success" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide text-light"></i><span class="text-light">HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse text-light" data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="archive.php">
-                            <i class="bi bi-circle"></i><span>Archive</span>
+                            <i class="bi bi-circle text-light"></i><span class="btn btn-success text-light">Archive</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="set-sem.php">
-                            <i class="bi bi-circle"></i><span>Semester</span>
+                            <i class="bi bi-circle text-light"></i><span class="text-light btn btn-success">Semester</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="designation.php">
-                            <i class="bi bi-circle"></i><span>Scholars Designation</span>
+                            <i class="bi bi-circle text-light"></i><span class="text-light btn btn-success">Scholars Designation</span>
                         </a>
                     </li>
+                    
 
-                </ul>
+                </ul>   
             </li><!-- End Components Nav -->
 
             </li><!-- End Dashboard Nav -->
@@ -223,6 +224,7 @@ if (empty($_SESSION['email'])) {
 
     </aside><!-- End Sidebar-->
 
+
     <main id="main" class="main">
 
         <div class="pagetitle text-dark">
@@ -237,6 +239,9 @@ if (empty($_SESSION['email'])) {
 
         
     </main><!-- End #main -->
+    
+
+    
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer" style="margin-top: 10%">

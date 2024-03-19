@@ -5,7 +5,7 @@ if (empty($_SESSION['email'])) {
 ?>
   <script>
     alert("Session Expired Please Login Again");
-    location.href = '../index.html';
+    location.href = '../index.php';
   </script>
 <?php
 } else {
@@ -160,12 +160,12 @@ if (empty($_SESSION['email'])) {
      
          
         <a class="nav-link  bg-success" href="accepted.php">
-          <i class="bi bi-check  text-light"></i>
-          <span class=" btn btn-success      text-light" >ACCEPTED APPLICANTS</span>
+          <i class="bi bi-check-lg  text-light"></i>
+          <span class=" btn btn-success  text-light" >ACCEPTED APPLICANTS</span>
         </a>
 
         <a class="nav-link bg-success" href="declined.php">
-          <i class="bi bi-check text-light"></i>
+          <i class="bi bi-x-lg text-light"></i>
           <span class=" btn btn-success  text-light">DECLINED APPLICANTS</span>
         </a>
 
@@ -221,7 +221,6 @@ if (empty($_SESSION['email'])) {
 
         <div class="container">
           <div class="container mt-3">
-            <h5>ACCEPTED APPLICANTS</h3>
                 <table class="table table-striped">
               <thead>
                 <tr>

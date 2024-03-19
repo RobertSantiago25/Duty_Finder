@@ -5,7 +5,7 @@ if (empty($_SESSION['email'])) {
 ?>
   <script>
     alert("Session Expired Please Login Again");
-    location.href = '../index.html';
+    location.href = '../index.php';
   </script>
 <?php
 } else {
@@ -208,7 +208,7 @@ if (empty($_SESSION['email'])) {
             <option value="">-Search Title-</option>
             <option value="Laboratory Assistant">Laboratory Assistant</option>
             <option value="Student Facilitator ">Student Facilitator </option>
-            <option value="Office Assistant ">Office Assistant </option>
+            <option value="Office Assistant">Office Assistant </option>
             <option value="Library Assitant">Library Assistant</option>
 
 

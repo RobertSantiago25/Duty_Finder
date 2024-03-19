@@ -5,7 +5,7 @@ if (empty($_SESSION['email'])) {
 ?>
   <script>
     alert("Session Expired Please Login Again");
-    location.href = '../index.html';
+    location.href = '../index.php';
   </script>
 <?php
 } else {
@@ -172,8 +172,8 @@ if (empty($_SESSION['email'])) {
 
         
       <li class="nav-item ">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed bg bg-success" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide text-light"></i><span class="text-light">HK Management</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse text-light" data-bs-parent="#sidebar-nav">
         <li>
@@ -242,14 +242,21 @@ if (empty($_SESSION['email'])) {
 
           <?php
           $get_post = mysqli_query($conn, "SELECT * FROM post WHERE semester = '$semester' AND school_year = '$school_year'");
-          while ($post = mysqli_fetch_array($get_post)) {
+          while ($post = mysqli_fetch_array($get_post)){
+            $profile = $post['faculty_email'];
+            $get_profile = mysqli_query($conn,"SELECT * FROM faculties WHERE email = '$profile'");
+            while($profile = mysqli_fetch_array($get_profile)){
+
+          
 
           ?>
+
+
             <div class="col-md-6 mb-3">
               <div class="card shadow h-100 border border-danger" style="border-radius: .5rem; border: 2px solid black">
                 <div class="row g-0  ">
                   <div class="col-md-4  gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                    <img src="assets/img/UIPC.png" alt="Avatar" class="img-fluid my-4 rounded-circle border border-3 border-dark" style="width: 120px;" />
+                    <img src="../uploads/<?php echo $profile['profile']; ?>" alt="Avatar" class="img-fluid my-4 rounded-circle border border-3 border-dark" style="width: 120px;" />
                     <h6 class=" fw-bold" style="font-size: 20px; color: green; text-decoration: underline;"> <?php echo $post['fullname']; ?></h6>
                     <h6 class="text-dark fw-bold"> <?php echo $post['department']; ?></h6>
                     <p class="text-dark fw-bold"> <?php echo $post['faculty_email']; ?></p>
@@ -342,6 +349,7 @@ if (empty($_SESSION['email'])) {
             </div>
           <?php
           }
+        }
           ?>
         </div>
 

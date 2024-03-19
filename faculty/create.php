@@ -164,13 +164,13 @@ if (empty($_SESSION['email'])) {
 
 
         <a class="nav-link bg-success" href="accepted.php">
-          <i class="bi bi-check text-light"></i>
+          <i class="bi bi-check-lg text-light"></i>
           <span class=" btn btn-success  text-light">ACCEPTED APPLICANTS</span>
         </a>
 
         
         <a class="nav-link bg-success" href="declined.php">
-          <i class="bi bi-check text-light"></i>
+          <i class="bi bi-x-lg text-light"></i>
           <span class=" btn btn-success  text-light">DECLINED APPLICANTS</span>
         </a>
 
@@ -226,7 +226,7 @@ if (empty($_SESSION['email'])) {
 
 
     <!--Post Code-->
-    <button type="submit" class="btn btn-primary" style="margin-left:30px;" data-bs-target="#add_post" data-bs-toggle="modal">CREATE POST</button>
+    <button type="submit" class="btn btn-success fw-bold" style="margin-left:30px;" data-bs-target="#add_post" data-bs-toggle="modal">CREATE POST</button>
 
     <div class="modal" id="add_post" tabindex="-1">
       <div class="modal-dialog ">
